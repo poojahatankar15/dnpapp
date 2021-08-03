@@ -1,0 +1,259 @@
+<html>
+<head>
+<title> dnpapp </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {
+   background-color: #330b7c;
+}
+
+* {box-sizing: border-box;}
+nav {
+   overflow: hidden;
+   background-color: #330b7c;
+   padding: 10px;
+}
+.links {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bold;
+   float: left;
+   color:white;
+   text-align: center;
+   padding: 12px;
+   text-decoration: none;
+   font-size: 18px;
+   line-height: 25px;
+   border-radius: 4px;
+}
+
+.links1 {
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bold;
+   float: left;
+   color:white;
+   text-align: center;
+   padding: 12px;
+   text-decoration: none;
+   font-size: 18px;
+   line-height: 25px;
+   border-radius: 4px;
+}
+
+nav .logo {
+   font-size: 35px;
+   font-weight: bold;
+   margin-top:10px;
+color:dodgerblue;
+}
+nav .links:hover {
+   background-color: #e69500;
+   color: rgb(42, 10, 94);
+}
+nav .selected {
+   background-color: dodgerblue;
+   color: white;
+}
+.rightSection {
+   float: right;
+}
+@media screen and (max-width: 870px) {
+   nav .links {
+      float: none;
+      display: block;
+      text-align: left;
+   }
+
+   nav .links1 {
+      float: none;
+      display: block;
+      text-align: left;
+   }
+
+   .rightSection {
+      float: none;
+   }
+}
+  @media screen and (max-width: 870px) {
+            .first {
+                width: 70%;
+            }
+        }
+
+.box {
+  float: left;
+  width: 50%;
+  padding: 0px;
+  height: 400px;
+}
+
+.box1 {
+  width: 100%;
+  padding: 0px;
+  height: 400px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.img1 {
+     width: 80%;
+     height: 70%;
+     margin-left:10%;
+     margin-top:10%;
+}
+
+.img2 {
+     width: 80%;
+     height: 70%;
+     margin-right:10%;
+     margin-top:10%;
+}
+
+.title1 {
+text-align:right;
+margin-right:20%;
+margin-top:15%;
+color:white;
+font-size:50px;
+border-bottom: 2px solid currentColor;
+}
+
+.title2 {
+text-align:left;
+margin-left:20%;
+margin-top:15%;
+color:white;
+font-size:50px;
+border-bottom: 2px solid currentColor;
+}
+
+.title3 {
+text-align:left;
+margin-left:20%;
+margin-top:3%;
+color:white;
+font-size:50px;
+border-bottom: 2px solid currentColor;
+}
+
+.text1 {
+text-align:right;
+margin-right:20%;
+margin-top:0%;
+color:white;
+font-size:20px;
+text-shadow: 2px 2px 5px dodgerblue;
+//text-shadow: 2px 2px 5px red;
+}
+
+.text2 {
+text-align:left;
+margin-left:20%;
+margin-top:0%;
+color:white;
+font-size:20px;
+text-shadow: 2px 2px 5px dodgerblue;
+//text-shadow: 2px 2px 5px red;
+}
+
+.footer{
+   background-color: #330b7c;
+   padding: 10px;
+ width:100%;
+ height:20%;
+}
+
+.text3 {
+text-align:center;
+color:white;
+font-size:20px;
+}
+
+</style>
+</head>
+<body bgcolor="skyblue">
+
+<nav>
+<a class="links logo" href="index.html">Code Engine</a>
+<div class="rightSection">
+<a class="selected links" href="index.html">Home</a>
+<a class="links" href="about.html">About Us</a>
+<a class="links" href="editor.html">Editor</a>
+<a class="links" href="tutorials.html">Tutorials</a>
+<a href="/appid/login" id="login" class="links">Login</a>
+<a href="/appid/logout" id="logout" style="display: none;" class="links">Logout</a>
+</nav>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $().ready(() => {
+            $.get("/api/user")
+                .then((resp) => {
+                    $("#user").text("Welcome " + resp.user.name + " to Code Engine!");
+                    $("#logout").show();
+                    $("#login").hide();
+                });
+        });
+    </script>
+
+<div class="clearfix">
+  <div class="box" style="background-color: #330b7c;">
+  <img class="img1" src="img/about1.png" width="50%" height="70%">
+  </div>
+  <div class="box" style="background-color:#330b7c;">
+  <h1 class="title1">About <span style="color:orange;">Site</span></h1>
+
+  <p class="text1">Code Engine is a tutorial site for languages like HTML and CSS. We focus on simplicity. We provide a editor to practice easy learning. We uses simple code examples and simple illustrations of how to use it. Code Engine is, and will always be, a completely free tutorial site. This site still under going updation and more features would be updated soon!</p>
+  </div>
+</div>
+
+<div class="clearfix">
+  <div class="box" style="background-color:#330b7c;">
+  <h1 class="title2">About <span style="color:orange;">Us</span></h1>
+
+  <p class="text2">Code Engine is website created by IBM Diploma course's student Pooja, Dhaivshilla and Neha for Elevtive 1. This website is used creating HTML, CSS, Javascript, Node.js and IBM Services.</p>
+  </div>
+
+  <div class="box" style="background-color: #330b7c;">
+  <img class="img1" src="img/about2.png" width="50%" height="70%">
+  </div>
+</div>
+
+<div class="clearfix">
+  <div class="box" style="background-color:#330b7c;">
+  <h1 class="title3">Contact Us</h1>
+<br>
+
+<form action="/">
+        <input type="text" id="name" name="name" placeholder="Name" style="width:80%; height:8%; margin-left:20%; border: none;  border-bottom: 2px solid white; background-color: transparent; color:white;" > 
+ 
+<br><br>
+        <input type="email" id="email" name="email" placeholder="Email" style="width:80%; height:8%; margin-left:20%; border: none;  border-bottom: 2px solid white; background-color: transparent; color:white;">
+<br><br>
+        <input type="number" id="number" name="number" placeholder="Mobile Number" style="width:80%; height:8%; margin-left:20%; border: none;  border-bottom: 2px solid white; background-color: transparent; color:white;">
+<br><br>
+        <textarea id="subject" name="subject" placeholder="Message" style="width:80%; height:15%; margin-left:20%; border: none;  border-bottom: 2px solid white; background-color: transparent; color:white;"></textarea>
+<br><br>
+      <input type="submit" value="Submit" style="width:30%; height:8%; margin-left:20%; background-color: dodgerblue; border: none; cursor: pointer; color:white;">
+
+</form>
+  </div>
+
+  <div class="box" style="background-color: #330b7c;">
+  <img class="img1" src="img/about2.png" width="50%" height="70%">
+  </div>
+</div>
+<br><br><br>
+<footer class="text3">
+	<br> &#9733;&#9733;&#9733; <br>
+            Copyright 2021 All Right Reserved By DNP Project Partners<br><br>
+</footer>
+
+
+</body>
+</html>
